@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'widgets.dart';
 
+// widget for checking state of login
 class AuthFunc extends StatelessWidget {
   const AuthFunc({
     super.key,
@@ -18,6 +19,7 @@ class AuthFunc extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 24, bottom: 8),
           child: StyledButton(
+              // function of button:
               onPressed: () {
                 !loggedIn
                     ? Navigator.of(context).pushNamed('/sign-in')
@@ -25,8 +27,8 @@ class AuthFunc extends StatelessWidget {
               },
               child: !loggedIn ? const Text('RSVP') : const Text('Logout')),
         ),
-        Visibility(
-            visible: loggedIn,
+        Visibility( // Control whether the given child is visible.
+            visible: loggedIn, // if logged in visible, otherwise not
             child: Padding(
               padding: const EdgeInsets.only(left: 24, bottom: 8),
               child: StyledButton(

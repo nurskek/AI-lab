@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+// 4 widgets:
+// Header
+// Paragraph
+// IconAndDetail
+// StyledButton
 
 class Header extends StatelessWidget {
   const Header(this.heading, {super.key});

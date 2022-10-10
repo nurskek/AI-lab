@@ -1,21 +1,21 @@
-import 'dart:async';                                     // new
-import 'package:firebase_auth/firebase_auth.dart'        // new
-    hide EmailAuthProvider, PhoneAuthProvider;           // new
-import 'package:firebase_core/firebase_core.dart';       // new
-import 'package:firebase_ui_auth/firebase_ui_auth.dart'; // new
+import 'dart:async'; // needed when Future or Stream is used
+import 'package:firebase_auth/firebase_auth.dart'
+    hide EmailAuthProvider, PhoneAuthProvider;
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-// use the provider package
 // to make a centralized application state object available throughout the application's tree
 import 'package:provider/provider.dart';
 
-import 'firebase_options.dart';                          // new
-import 'src/authentication.dart';                        // new
+import 'firebase_options.dart';
+import 'src/authentication.dart';
 import 'src/widgets.dart';
 
 void main() {
+  // WidgetsFlutterBinding -> A concrete binding for applications based on the Widgets framework.
   WidgetsFlutterBinding.ensureInitialized();
 
   // ChangeNotifierProvider widget is used for
@@ -53,6 +53,7 @@ class App extends StatelessWidget {
                     return;
                   }
                   if (state is UserCreated) {
+                    // email cannot be null
                     user.updateDisplayName(user.email!.split('@')[0]);
                   }
                   if (!user.emailVerified) {
@@ -122,6 +123,7 @@ class HomePage extends StatelessWidget {
           const IconAndDetail(Icons.calendar_today, 'October 30'),
           const IconAndDetail(Icons.location_city, 'San Francisco'),
           Consumer<ApplicationState>(
+            // Consumer class -> obtains Provider<T> from its ancestors and passes its value to builder.
             builder: (context, appState, _) => AuthFunc(
                 loggedIn: appState.loggedIn,
                 signOut: () {
@@ -179,6 +181,7 @@ class ApplicationState extends ChangeNotifier {
   // subscribe to a query over the document collection when a user logs in,
   // and unsubscribe when they log out.
   Future<void> init() async {
+    //A Future object represents a computation whose return value might not yet be available.
     await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform);
 
