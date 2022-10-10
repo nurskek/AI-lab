@@ -19,6 +19,6 @@ $ flutterfire configure --project=flutterapp-89b4d
 |:———————|:———————:|:———————:|:———————:|:———————:|:———————:|:———————:|:———————:|:———————:|:———————:|———————:|
 |-|O|-|O|-|O|O|O|-|-|-|
 
-| Android | iPhone (7)    | Windows |
-| :---:   | :---: | :---: |
-| - | 0 | - |
+| Android | iPhone (7)    | Windows | macOS (12.6) | Linux | Chrome | Firefox | Safari | Edge | Mobile Chrome on Android)
+| :---:   | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| - | 0 | - | 0 | - | 0 | 0 | 0 | - | - |
