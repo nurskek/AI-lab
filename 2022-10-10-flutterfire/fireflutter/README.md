@@ -15,10 +15,6 @@ $ flutterfire configure --project=flutterapp-89b4d
 
 ## Compatibilty Test
 
-|Android|iPhone (7)|Windows|macOS (12.6)|Linux|Chrome|FireFox|Safari|Microsoft Edge|Samsung mobile web browser|Mobile Chrome on Android|
-|:———————|:———————:|:———————:|:———————:|:———————:|:———————:|:———————:|:———————:|:———————:|:———————:|———————:|
-|-|O|-|O|-|O|O|O|-|-|-|
-
 | Android | iPhone (7)    | Windows | macOS (12.6) | Linux | Chrome | Firefox | Safari | Edge | Mobile Chrome on Android)
 | :---:   | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | - | 0 | - | 0 | - | 0 | 0 | 0 | - | - |
