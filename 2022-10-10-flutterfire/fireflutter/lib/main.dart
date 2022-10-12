@@ -7,22 +7,34 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:google_sign_in/google_sign_in.dart';
 
 // to make a centralized application state object available throughout the application's tree
+// usage: (1) Exposing a value (2) Exposing a new object instance
 import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 import 'src/authentication.dart';
 import 'src/widgets.dart';
 
+// This file has following widgets/objects:
+// ApplicationState
+// GuestBookMessage
+// GuestBook
+
+
 void main() {
   // WidgetsFlutterBinding -> A concrete binding for applications based on the Widgets framework.
+  // only need to call this method if we need the binding to be initialized before calling runApp.
+  // Returns an instance of the binding (which is created and initialized by WWidgetsFlutterBinding)
   WidgetsFlutterBinding.ensureInitialized();
 
   // ChangeNotifierProvider widget is used for
   // instantiating the application state object
   runApp(ChangeNotifierProvider(
+    // ChangeNotifierProvider -> Listens to a ChangeNotifier,
+    // expose it to its descendants and rebuilds dependents
+    // whenever ChangeNotifier.notifyListeners(in ApplicationState) is called.
     create: (context) => ApplicationState(),
     builder: ((context, child) => const App()),
   ));
@@ -81,7 +93,7 @@ class App extends StatelessWidget {
           );
         }),
         '/profile': ((context) {
-          return ProfileScreen(
+          return ProfileScreen( //  from firebase_ui_auth
             providers: [],
             actions: [
               SignedOutAction(
@@ -119,14 +131,16 @@ class HomePage extends StatelessWidget {
         title: const Text('Firebase Meetup'),
       ),
       body: ListView(
-        children: <Widget>[
+        children: <Widget>[ // the children only can accept a list of widgets
           Image.asset('../assets/codelab.png'),
           const SizedBox(height: 8),
           const IconAndDetail(Icons.calendar_today, 'October 30'),
           const IconAndDetail(Icons.location_city, 'San Francisco'),
           Consumer<ApplicationState>(
+            // Consumer helps with performance optimization by providing more granular rebuilds.
             // Consumer class -> obtains Provider<T> from its ancestors and passes its value to builder.
-            builder: (context, appState, _) => AuthFunc(
+            builder: (context, appState, _) => AuthFunc( // from authentication.dart
+                // AuthFunc switches to routes depending on appState login status
                 loggedIn: appState.loggedIn,
                 signOut: () {
                   FirebaseAuth.instance.signOut();
@@ -173,15 +187,15 @@ class ApplicationState extends ChangeNotifier {
     init();
   }
 
-  bool _loggedIn = false;
-  bool get loggedIn => _loggedIn;
+  bool _loggedIn = false; // state
+  bool get loggedIn => _loggedIn; //getter for this state
 
-  StreamSubscription<QuerySnapshot>? _guestBookSubscription;
-  List<GuestBookMessage> _guestBookMessages = [];
-  List<GuestBookMessage> get guestBookMessages => _guestBookMessages;
+  StreamSubscription<QuerySnapshot>? _guestBookSubscription; // ?
+  List<GuestBookMessage> _guestBookMessages = []; // ?
+  List<GuestBookMessage> get guestBookMessages => _guestBookMessages; // getter for above state
 
-  // subscribe to a query over the document collection when a user logs in,
-  // and unsubscribe when they log out.
+  // subscribes to a query over the document collection when a user logs in,
+  // and unsubscribes when they log out.
   Future<void> init() async {
     //A Future object represents a computation whose return value might not yet be available.
     await Firebase.initializeApp(
@@ -191,6 +205,8 @@ class ApplicationState extends ChangeNotifier {
       EmailAuthProvider(),
     ]);
 
+
+    // three methods for listening to authentication state changes: authStateChanges(), idTokenChanges(), userChanges()
     FirebaseAuth.instance.userChanges().listen((user) {
       if (user != null) {
         _loggedIn = true;
@@ -203,17 +219,19 @@ class ApplicationState extends ChangeNotifier {
           for (final document in snapshot.docs) {
             _guestBookMessages.add(
               GuestBookMessage(
+                // data() contains all the data of this document snapshot
                 name: document.data()['name'] as String,
                 message: document.data()['text'] as String,
               ),
             );
           }
+          // to notify that changes occured
           notifyListeners();
         });
       } else {
         _loggedIn = false;
         _guestBookMessages = [];
-        _guestBookSubscription?.cancel();
+        _guestBookSubscription?.cancel(); // Cancels this subscription.
       }
       notifyListeners();
     });
@@ -233,8 +251,9 @@ class ApplicationState extends ChangeNotifier {
       'userId': FirebaseAuth.instance.currentUser!.uid,
     });
   }
-}
+} // the end of ApplicationState
 
+// constructor
 class GuestBookMessage {
   GuestBookMessage({required this.name, required this.message});
   final String name;
@@ -250,12 +269,12 @@ class GuestBook extends StatefulWidget {
   State<GuestBook> createState() => _GuestBookState();
 }
 
+// returns text form to submit and list of messages with corresponding users
 class _GuestBookState extends State<GuestBook> {
   final _formKey = GlobalKey<FormState>(debugLabel: '_GuestBookState');
-  final _controller = TextEditingController();
+  final _controller = TextEditingController(); // Handle changes to a text field
 
   @override
-  // Modified from here
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -264,6 +283,7 @@ class _GuestBookState extends State<GuestBook> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
+            // this is for debug afaiu
             key: _formKey,
             child: Row(
               children: [
@@ -285,6 +305,7 @@ class _GuestBookState extends State<GuestBook> {
                 StyledButton(
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
+                      // to _formKey
                       await widget.addMessage(_controller.text);
                       _controller.clear();
                     }

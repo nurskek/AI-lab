@@ -10,7 +10,7 @@ class AuthFunc extends StatelessWidget {
   });
 
   final bool loggedIn;
-  final void Function() signOut;
+  final void Function() signOut; // needed for Firebase.signOut()
 
   @override
   Widget build(BuildContext context) {

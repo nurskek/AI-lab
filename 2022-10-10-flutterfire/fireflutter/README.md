@@ -6,6 +6,7 @@ First sample Firebase project with flutter framework. Flutter App that will impl
 * Setup, see https://console.firebase.google.com/project/flutterapp-89b4d/overview & https://firebase.google.com/docs/flutter/setup?platform=ios
 * Codelab using Authentication, Cloud Firestore, see https://firebase.google.com/codelabs/firebase-get-to-know-flutter#0
 * Learning while commenting, see https://api.flutter.dev/flutter/dart-async/dart-async-library.html
+* FirebaseUI, see https://firebase.google.com/docs/auth/web/firebaseui
 
 ## Running FlutterFire CLI
 
