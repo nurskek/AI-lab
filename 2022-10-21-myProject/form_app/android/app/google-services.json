@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "24064851646",
+    "project_id": "my-form-app-9c9bb",
+    "storage_bucket": "my-form-app-9c9bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24064851646:android:48bc0805f4c2c1fdc6a8ef",
+        "android_client_info": {
+          "package_name": "com.example.form_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24064851646-j49ag9vqls96skt1hf209c4etsmud008.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBTbEX05PvIZ-sfdeynRt35B_-Xf1-r5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24064851646-j49ag9vqls96skt1hf209c4etsmud008.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "24064851646-dmmfpqf0rmupdija6lasanv9ta9fh8um.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nurs.formApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
