@@ -12,4 +12,4 @@ Representation of bar chart is realtime.
 
 | Android | iPhone (7) | Windows | macOS (12.6) | Linux | Chrome | Firefox | Safari | Edge | Mobile Chrome on Android)
 | :---:   |:----------:| :---: |:------------:| :---: |:------:| :---: | :---: | :---: | :---: |
-| - |     -      | O |      -       | - |   -    | O | O | - | - |
+| - |     -      | O |      -       | - |   O   | O | O | - | - |
