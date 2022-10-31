@@ -1,16 +1,15 @@
-# my_poll
+# Poll App
 
-A new Flutter project.
+This project obtains the data from firestore, transfers it into the radio button list, then based on the clicks draws the bar chart.
+Representation of bar chart is realtime.
 
-## Getting Started
+## References
+* https://api.flutter.dev/flutter/material/Radio-class.html -> radio button package
+* https://firebase.flutter.dev/docs/firestore/usage#realtime-changes -> manipulation
+* https://www.youtube.com/watch?v=svChy9a1JCM -> livechart example
 
-This project is a starting point for a Flutter application.
+## Compatibilty Test
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Android | iPhone (7) | Windows | macOS (12.6) | Linux | Chrome | Firefox | Safari | Edge | Mobile Chrome on Android)
+| :---:   |:----------:| :---: |:------------:| :---: |:------:| :---: | :---: | :---: | :---: |
+| - |     -      | O |      -       | - |   -    | O | O | - | - |
