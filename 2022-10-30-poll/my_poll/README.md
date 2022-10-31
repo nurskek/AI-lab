@@ -4,9 +4,10 @@ This project obtains the data from firestore, transfers it into the radio button
 Representation of bar chart is realtime.
 
 ## References
-* https://api.flutter.dev/flutter/material/Radio-class.html -> radio button package
+* https://api.flutter.dev/flutter/material/Radio-class.html -> radio button
 * https://firebase.flutter.dev/docs/firestore/usage#realtime-changes -> manipulation
 * https://www.youtube.com/watch?v=svChy9a1JCM -> livechart example
+* https://pub.dev/packages/d_chart -> bar's package
 
 ## Compatibilty Test
 

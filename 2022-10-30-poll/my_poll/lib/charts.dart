@@ -16,6 +16,7 @@ class LiveChartPage extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           shrinkWrap: true,
           children: [
+            // StreamBuilder -> builds itself based on a snapshot from interacting with a Stream.
             StreamBuilder(
                 stream: streamChart,
                 builder: (context,
@@ -36,8 +37,8 @@ class LiveChartPage extends StatelessWidget {
                           'data': listChart,
                         }
                       ],
-                      axisLineColor: Colors.green,
-                      barColor: (barData, index, id) => Colors.green,
+                      axisLineColor: Colors.blue,
+                      barColor: (barData, index, id) => Colors.blue,
                       showBarValue: true,
                     ),
                   );
