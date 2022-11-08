@@ -1,16 +1,19 @@
-# like_app
+# Poll App
 
-A new Flutter project.
+This project show the implementation of
+- authentication
+- writing data and storing it in firestore binding email to user's input
+- like and dislike counter on single fixed restaurant (multiples like/dislikes are possible for the demonstration)
+- chart connected with like counter
+- incomplete (ongoing) implementation of Cloud Functions to show the average rating
 
-## Getting Started
+## References
+* https://firebase.google.com/docs/auth/android/manage-users#java -> manage users
+* https://firebase.flutter.dev/docs/firestore/usage#realtime-changes -> manipulation
+* https://pub.dev/packages/d_chart -> bar's package
 
-This project is a starting point for a Flutter application.
+## Compatibilty Test
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Android | iPhone (7) | Windows | macOS (12.6) | Linux | Chrome | Firefox | Safari | Edge | Mobile Chrome on Android)
+| :---:   |:----------:| :---: |:------------:| :---: |:------:| :---: | :---: | :---: | :---: |
+| - |     O      | O |      O       | - |   O   | O | O | - | - |
