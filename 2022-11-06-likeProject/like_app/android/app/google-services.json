@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "92595988023",
+    "project_id": "like-app-37fcf",
+    "storage_bucket": "like-app-37fcf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92595988023:android:00cd3981062990bde8c1b2",
+        "android_client_info": {
+          "package_name": "com.example.like_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92595988023-1jq0d01a06tdakd6dmajkqmnuvbgv9ej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlWdURMyP5WKu6P_HeME_sHWh_GG9xX4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92595988023-1jq0d01a06tdakd6dmajkqmnuvbgv9ej.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "92595988023-ieoevheal0shvftppbmhd7m394jmvfos.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.likeApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
