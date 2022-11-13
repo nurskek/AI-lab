@@ -42,6 +42,7 @@ final storage = FirebaseStorage.instanceFor(app: customApp);
 A few resources for our Flutter project:
 
 - [Advanced Setup for Cloud Storage] (https://firebase.google.com/docs/storage/flutter/start#advanced_setup)
+- [XFile] (https://pub.dev/documentation/cross_file/latest/index.html)
 - 
 
 For help getting started with Flutter development, view the
