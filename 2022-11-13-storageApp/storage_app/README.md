@@ -43,7 +43,15 @@ A few resources for our Flutter project:
 
 - [Advanced Setup for Cloud Storage] (https://firebase.google.com/docs/storage/flutter/start#advanced_setup)
 - [XFile] (https://pub.dev/documentation/cross_file/latest/index.html)
-- 
+- [Storage Example] (https://github.com/firebase/flutterfire/blob/master/packages/firebase_storage/firebase_storage/example/lib/main.dart)
+
+## Errors:
+Status: unresolved
+![Before upload] (readmeimage/1st.png)
+![After upload] (readmeimage/2nd.png)
+
+##Platforms:
+No correctly working platform 
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
