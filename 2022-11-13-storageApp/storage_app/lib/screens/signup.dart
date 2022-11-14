@@ -40,7 +40,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HomeScreen()))
+                            builder: (context) => const TaskManager()))
                   })
                       .onError((error, stackTrace) {
                     throw ("Error ${error.toString()}");

@@ -29,6 +29,13 @@
             {
               "client_id": "342639587026-c9cebohii9lt74je8qtk3rq0p7ia5v55.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "342639587026-anjhr2dr6ltsgorkk2ne1vin10ji8ud1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.storageApp"
+              }
             }
           ]
         }

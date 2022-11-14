@@ -50,7 +50,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       .then((value) => {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const HomeScreen())
+                        MaterialPageRoute(builder: (context) => const TaskManager())
                     )
                   });
                 }),
