@@ -80,6 +80,6 @@ Application finished.
 
 p.s. '[]' were removed for not creating conflict in readme file
 
-##Platforms:
+## Platforms:
 Web, Real Iphone (7), iOS simulator, MacOS are checked. No correctly working platform.
 
