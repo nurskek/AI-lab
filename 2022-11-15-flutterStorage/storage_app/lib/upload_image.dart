@@ -18,7 +18,8 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
 
   Future<void> uploadImage(String inputSource) async {
     final picker = ImagePicker();
-    final XFile? pickedImage = await picker.pickImage(source: inputSource == 'camera' ? ImageSource.camera : ImageSource.gallery);
+    final XFile? pickedImage =
+      await picker.pickImage(source: inputSource == 'camera' ? ImageSource.camera : ImageSource.gallery);
 
     if(pickedImage == null) {
       return null;
