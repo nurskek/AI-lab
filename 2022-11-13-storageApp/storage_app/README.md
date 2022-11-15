@@ -47,8 +47,10 @@ A few resources for our Flutter project:
 
 ## Errors:
 Status: unresolved
-![Before upload] (readmeimage/1st.png)
-![After upload] (readmeimage/2nd.png)
+
+![Before upload](https://github.com/nurskek/AI-lab/blob/main/2022-11-13-storageApp/storage_app/readmeimage/1st.png)
+
+![After upload](https://github.com/nurskek/AI-lab/blob/main/2022-11-13-storageApp/storage_app/readmeimage/2nd.png)
 
 ##Platforms:
 No correctly working platform 
