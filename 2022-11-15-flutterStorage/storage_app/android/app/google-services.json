@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "477048858360",
+    "project_id": "flutter-storage-beedd",
+    "storage_bucket": "flutter-storage-beedd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477048858360:android:756fd0e90ffd9002487d0d",
+        "android_client_info": {
+          "package_name": "com.example.storage_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "477048858360-cajdene88e7lflud9178rlrlcbv1levl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTk0BKL6HKcNQUU1lLxyetjBpFUcGzyIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "477048858360-cajdene88e7lflud9178rlrlcbv1levl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "477048858360-qb7dvlnjja2eseaodkcdhg0ou25g7fjg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nurs.storageApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
