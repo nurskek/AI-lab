@@ -50,3 +50,10 @@ Before refresh:
 
 After refresh (check the time):
 ![After refresh](https://github.com/nurskek/AI-lab/blob/main/2022-11-18-notifyApp/notify_app/readmeImage/after.png)
+
+## Analysis:
+
+This implementation used stream and future. We need to use transactions to ensure that write uses the recent data saved.
+
+## Platforms:
+Need to configure podfile for macOS and iOS at least.
