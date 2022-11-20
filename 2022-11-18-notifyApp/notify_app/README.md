@@ -44,7 +44,9 @@ Future<void> getCount(DocumentReference ref) async {
 ## Problem:
 
 After checking it from the firebase side, the similar problem as previous student was observed.
-After some operations of increment we get:
+After some operations of increment we get the below.
+Before refresh:
 ![Before refresh](https://github.com/nurskek/AI-lab/blob/main/2022-11-18-notifyApp/notify_app/readmeImage/before.png)
 
+After refresh (check the time):
 ![After refresh](https://github.com/nurskek/AI-lab/blob/main/2022-11-18-notifyApp/notify_app/readmeImage/after.png)
