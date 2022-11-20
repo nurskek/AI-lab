@@ -32,26 +32,47 @@ Future<void> createCounter(DocumentReference ref, int numShards) async {
 }
 
 Future<void> incrementCounter(DocumentReference ref, int numShards) async {
-  // Select a shard of the counter at random
 
   final shardId = Random().nextInt(numShards).toString();
   final shardRef = ref.collection('shards').doc(shardId);
-
-  // Update count
-  await shardRef.update({'count': FieldValue.increment(1)});
+  await shardRef.update({'count': FieldValue.increment(1)}); // update and set should be handled
 }
 
-Future<int> getCount(DocumentReference ref) async {
+Future<void> getCount(DocumentReference ref) async {
+  // added Stream and async*
   // Sum the count of each shard in the subcollection
   final shards = await ref.collection('shards').get();
-
   int totalCount = 0;
-
-  shards.docs.forEach(
-        (doc) {
-      totalCount += doc.data()['count'] as int;
-    },
-  );
-
-  return totalCount;
+  for (var doc in shards.docs) {
+    totalCount += doc.data()['count'] as int;
+  }
+  await ref.update({'totalSum': totalCount});
 }
+
+// return totalCount; getCount
+
+//
+// ref.collection('shards').get().then((QuerySnapshot querySnapshot) {
+//   querySnapshot.docs.forEach((doc) {
+//     totalCount += doc['count'] as int;
+//   });
+// }); getCount
+
+// Stream<DocumentSnapshot> getCount(DocumentReference ref) async* { // added Stream and async*
+//   // Sum the count of each shard in the subcollection
+//   final shards = await ref.collection('shards').get();
+//
+//   int totalCount = 0;
+//   //
+//   // ref.collection('shards').get().then((QuerySnapshot querySnapshot) {
+//   //   querySnapshot.docs.forEach((doc) {
+//   //     totalCount += doc['count'] as int;
+//   //   });
+//   // });
+//
+//   for (var doc in shards.docs) {
+//     totalCount += doc.data()['count'] as int;
+//   }
+//
+//   yield* ref.where("totalSum", isEqualTo: totalCount).snapshots();
+// }

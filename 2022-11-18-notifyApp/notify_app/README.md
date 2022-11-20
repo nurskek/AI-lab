@@ -1,16 +1,50 @@
 # notify_app
 
-A new Flutter project.
+Name is not related to the app implementation. This app is starter steps to handle the distibuted counter in flutter+firebase bundle.
 
-## Getting Started
+## Code parts:
 
-This project is a starting point for a Flutter application.
+number of total counts is shown in build part of main.dart:
+```
+StreamBuilder<DocumentSnapshot>(
+                stream: FirebaseFirestore.instance.collection("counters").doc("query").snapshots(),
+                builder: (context, snapshot) {
+                  if(snapshot.hasData) {
+                    _counter = snapshot.data!.data() != null ? snapshot.data!.get('totalSum') : 0;
+                    return Text(_counter.toString());
+                  }
+                  return const Text('No data');
+                }
+            ),
+```
+in counterSolution.dart:
+```
+Future<void> incrementCounter(DocumentReference ref, int numShards) async {
 
-A few resources to get you started if this is your first Flutter project:
+final shardId = Random().nextInt(numShards).toString();
+final shardRef = ref.collection('shards').doc(shardId);
+await shardRef.update({'count': FieldValue.increment(1)}); // update and set should be handled
+}
+```
+and
+```
+Future<void> getCount(DocumentReference ref) async {
+  final shards = await ref.collection('shards').get();
+  int totalCount = 0;
+  for (var doc in shards.docs) {
+    totalCount += doc.data()['count'] as int;
+  }
+  await ref.update({'totalSum': totalCount});
+}
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Distributed Counter](https://firebase.flutter.dev/docs/firestore/usage#distributed-counters)
+
+## Problem:
+
+After checking it from the firebase side, the similar problem as previous student was observed.
+After some operations of increment we get:
+![Before refresh](https://github.com/nurskek/AI-lab/blob/main/2022-11-18-notifyApp/notify_app/readmeImage/before.png)
+
+![After refresh](https://github.com/nurskek/AI-lab/blob/main/2022-11-18-notifyApp/notify_app/readmeImage/after.png)
