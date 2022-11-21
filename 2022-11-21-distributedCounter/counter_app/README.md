@@ -65,8 +65,11 @@ Future<void> getCount(DocumentReference ref) async {
 }
 ```
 
-
 - [Distributed Counter](https://firebase.flutter.dev/docs/firestore/usage#distributed-counters)
+
+## Firestore stucture:
+
+![Before refresh](https://github.com/nurskek/AI-lab/blob/main/2022-11-21-distributedCounter/counter_app/readmeImage/firestore.png)
 
 ## Problem:
 
