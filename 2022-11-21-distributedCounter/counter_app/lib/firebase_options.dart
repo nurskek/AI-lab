@@ -63,12 +63,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAFHKWefZEyGdZoEcbcizHstu1j2RlVPRE',
-    appId: '1:606310247947:ios:37f71b29c5d06fee9d610e',
+    appId: '1:606310247947:ios:5930ed938b32565b9d610e',
     messagingSenderId: '606310247947',
     projectId: 'counter-app-86d9c',
     storageBucket: 'counter-app-86d9c.appspot.com',
-    iosClientId: '606310247947-iusi7k6dat27j9lcmfu7iqv0oemc6ge6.apps.googleusercontent.com',
-    iosBundleId: 'com.example.counterApp',
+    iosClientId: '606310247947-74o88r096dtacfe9t7vr4u1h1kh3380s.apps.googleusercontent.com',
+    iosBundleId: 'com.nurs.counterApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(

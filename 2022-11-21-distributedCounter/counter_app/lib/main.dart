@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:counter_app/counterSolution.dart' as counters;
+// import 'package:counter_app/counterSolution.dart' as counters;
 import 'counterSolution.dart';
 import 'firebase_options.dart';
 
@@ -55,13 +55,14 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[ // remove const later
-                Text(
+                const Text(
                   'You have pushed the button this many times: ',
                 ),
                 StreamBuilder<DocumentSnapshot>(
                     stream: FirebaseFirestore.instance.collection("counters").doc("query").snapshots(),
                     builder: (context, snapshot) {
                       if(snapshot.hasData) {
+                        // getCount(doc);
                         _counter = snapshot.data!.data() != null ? snapshot.data!.get('totalSum') : 0;
                         return Text(_counter.toString());
                       }
@@ -74,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               incrementCounter(doc, 10);
-              // getCount(doc);
+              getCount(doc);
             },
             tooltip: 'Increment',
             child: const Icon(Icons.add),

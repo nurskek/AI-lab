@@ -49,5 +49,5 @@ Future<void> getCount(DocumentReference ref) async { // int to void
   }
 
   // return totalCount;
-  await ref.update({'totalSum': totalCount});
+  await ref.set({'totalSum': totalCount});
 }
