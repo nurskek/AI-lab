@@ -1,6 +1,8 @@
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ItemsUploadScreen extends StatefulWidget {
 
@@ -219,7 +221,7 @@ class _ItemsUploadScreenState extends State<ItemsUploadScreen> {
           children: [
             SimpleDialogOption(
               onPressed: () {
-
+                captureImageWithPhoneCamera();
               },
               child: const Text(
                 "Capture image with Camera", style: TextStyle(color: Colors.grey),
@@ -227,7 +229,7 @@ class _ItemsUploadScreenState extends State<ItemsUploadScreen> {
             ),
             SimpleDialogOption(
                 onPressed: () {
-
+                  chooseImageFromPhoneGallery();
                 },
                 child: const Text(
                   "Choose image from Gallery", style: TextStyle(color: Colors.grey),
@@ -247,8 +249,54 @@ class _ItemsUploadScreenState extends State<ItemsUploadScreen> {
     );
   }
 
+  captureImageWithPhoneCamera() async {
+    Navigator.pop(context);
+    try {
+      final pickedImage = await ImagePicker().pickImage(source: ImageSource.camera);
+      if(pickedImage != null) {
+        String imagePath = pickedImage.path;
+        imageFileUint8List = await pickedImage.readAsBytes();
+
+        //remove background from image
+
+        setState(() {
+          imageFileUint8List;
+        });
+      }
+    } catch (e) {
+      print(e.toString());
+      setState(() {
+        imageFileUint8List = null;
+      });
+
+    }
+  }
+  chooseImageFromPhoneGallery() async {
+    Navigator.pop(context);
+
+    try {
+      final pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if(pickedImage != null) {
+        String imagePath = pickedImage.path;
+        imageFileUint8List = await pickedImage.readAsBytes();
+
+        //remove background from image
+
+        setState(() {
+          imageFileUint8List;
+        });
+      }
+    } catch (e) {
+      print(e.toString());
+      setState(() {
+        imageFileUint8List = null;
+      });
+
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return defaultScreen();
+    return imageFileUint8List == null ? defaultScreen() : uploadFromScreen();
   }
 }
