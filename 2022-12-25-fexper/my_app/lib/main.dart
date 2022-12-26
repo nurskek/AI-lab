@@ -45,39 +45,53 @@ class _MyAppState extends State<MyApp> {
             },
           ),
         ),
-        floatingActionButton: Builder(
-          builder: (context) => FloatingActionButton.extended(
-            onPressed: () async {
-              // See index.js in .github/workflows/scripts for the example function we
-              // are using for this example
-              HttpsCallable callable = FirebaseFunctions.instance.httpsCallable(
-                'listFruit',
-                options: HttpsCallableOptions(
-                  timeout: const Duration(seconds: 5),
-                ),
-              );
+        floatingActionButton: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Builder(
+              builder: (context) => FloatingActionButton.extended(
+                onPressed: () async {
+                  // See index.js in .github/workflows/scripts for the example function we
+                  // are using for this example
+                  HttpsCallable callable = FirebaseFunctions.instance.httpsCallable(
+                    'listFruit',
+                    options: HttpsCallableOptions(
+                      timeout: const Duration(seconds: 5),
+                    ),
+                  );
 
-              try {
-                final result = await callable();
-                setState(() {
-                  fruit.clear();
-                  result.data.forEach((f) {
-                    fruit.add(f);
-                  });
-                });
-              } catch (e) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('ERROR: $e'),
-                  ),
-                );
-              }
-            },
-            label: const Text('Call Function'),
-            icon: const Icon(Icons.cloud),
-            backgroundColor: Colors.deepOrange,
-          ),
-        ),
+                  try {
+                    final result = await callable();
+                    setState(() {
+                      fruit.clear();
+                      result.data.forEach((f) {
+                        fruit.add(f);
+                      });
+                    });
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('ERROR: $e'),
+                      ),
+                    );
+                  }
+                },
+                label: const Text('Call Function'),
+                icon: const Icon(Icons.cloud),
+                backgroundColor: Colors.deepOrange,
+              ),
+            ),
+            FloatingActionButton(
+              child: Icon(
+                  Icons.star
+              ),
+              onPressed: () => print("Hi!"),
+              heroTag: null,
+            )
+          ]
+        )
+
+
       ),
     );
   }
